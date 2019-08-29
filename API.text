@@ -1,0 +1,50 @@
+
+//Story 1
+//1. 创建停车男孩
+method:post
+url:/parkingBoys/parkingBoy
+requestbody:{"employssId":3,"employeeName":"tock"}
+responsebody:
+responsecode:201
+
+//2. 查询所有的停车男孩
+method:get
+url:/parkingBoys
+requestbody:
+responsebody:[{"employssId":1,"employeeName":"tom"},
+            {"employssId":2,"employeeName":"nick"}]
+responsecode:200
+
+
+//Story 2
+//1. 创建停车场
+method:post
+url:/parkingLots/parkingLot
+requestbody:{"parkingLotId":1,"capacity":50,"availablePositionCount":20}
+responsebody:
+responsecode:201
+
+//2. 查询所有的停车场
+method:get
+url:/parkingLots
+requestbody:
+responsebody:[{"parkingLotId":1,"capacity":50,"availablePositionCount":20},
+              {"parkingLotId":2,"capacity":30,"availablePositionCount":10}]
+responsecode:200
+
+
+//Story 3
+//1. 关联停车场与停车男孩
+method:post
+url:/parkingBoys/001/parkingLots
+requestbody:[{"parkingLotId":1,"capacity":50,"availablePositionCount":20},
+             {"parkingLotId":2,"capacity":30,"availablePositionCount":10}]
+responsebody:
+responsecode:201
+//2. 查询某个停车男孩管理的停车场
+method:get
+url:/parkingBoys/001/parkingLots
+requestbody:
+responsebody:[{"parkingLotId":1,"capacity":50,"availablePositionCount":20},
+              {"parkingLotId":2,"capacity":30,"availablePositionCount":10}]
+responsecode:200
